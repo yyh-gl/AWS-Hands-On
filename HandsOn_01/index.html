@@ -1,0 +1,129 @@
+<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
+<!-- 下準備ゾーン -->
+<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
+<!-- Bootstrap(CSSフレームワーク)をインポート -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!-- jqueryをインポート -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- JavaScriptをインポート -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- スタイルシートをインポート -->
+<link href='http://fonts.googleapis.com/css?family=Questrial|Droid+Sans|Alice' rel='stylesheet' type='text/css'>
+<!-- アイコン画像をインポート -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
+<!-- 実際に画面に表示される部分（HTML記述部分） -->
+<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
+<!-- ヘッダーを表示 -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="./img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="AWS">
+    実践！ S3で静的Webページホスティング
+  </a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="Navber">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#new">新規ユーザ登録</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#users">ユーザ一覧</a>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+<!-- フォームを表示 -->
+<div id="content">
+  <h1> 招待状 </h1>
+  <p class="message">新しい我が家が完成しました。<br>ぜひ一度遊びに来てください。<br>ケーキとコーヒを用意して待っています。</p>
+  
+  <form action=" " method="post"  autocomplete="on">
+    <p> <label for="name" class="iconic name fa fa-user" > 名前 <span class="required">*</span></label> <input type="text" name="name" id="name"  required="required" placeholder="トニー・スターク"  /> </p>
+    <p> <label for="grade" class="iconic grade fa fa-graduation-cap"> 学年 <span class="required">*</span></label> <input type="text" name="grade" id="grade" placeholder="M2" required="required"  /> </p>
+    <p class="indication"> <span class="required">*</span> マークは必須項目です。</p>
+    <input type="submit" value=" ★ 行きます:)" />
+  </form>
+</div>
+
+
+<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
+<!-- 画面表示を鮮やかにする部分（CSS記述部分） -->
+<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
+<style>
+ /* 入力フォーム */
+ #content{
+     position:relative;
+     margin:50px auto;   
+     width:400px;
+     min-height:200px;
+     z-index:100;
+     padding:30px;
+     border:1px solid #383838;   
+     background: #D1D1D1;
+     /* My stripped background */
+     background: repeating-linear-gradient(-45deg, #EFC1CB , #EFC1CB 30px, #F2F2F2 30px, #F2F2F2 40px, #C2E8F5 40px, #C2E8F5 70px,#F2F2F2 70px, #F2F2F2 80px);
+     border-radius:8px;
+     box-shadow:0px 1px 6px #3F3F3F;
+     text-align: center;
+ }
+
+ /* 入力フォーム */
+ #content:after{
+     background:#F9F9F9;
+     margin:10px;
+     position: absolute;
+     content : " ";
+     bottom: 0;
+     left: 0;
+     right: 0;
+     top: 0;
+     z-index: -1;
+     border:1px #E5E5E5 solid;
+     border-radius:8px;
+ }
+ 
+ h1 {
+     font-family: 'Questrial', Verdana, sans-serif;
+     text-align:center;
+     font-size:40px;
+     padding:0;
+     margin:0 0 20px 0;
+     position:relative;
+     color:#8C8C8C;
+ }
+ 
+ h1:after {
+     font-size:25px;
+     color:#D6CFCB;
+     content: '&';
+     text-align:center;
+     display:block;
+     width:100%;
+     font-family: 'Alice', Verdana, serif;
+     text-shadow: 0px 1px 0px #fff;
+ }
+ 
+ h1:before {
+     position:absolute;
+     bottom:15px;
+     content: ' ';
+     text-align:center;
+     display:block;
+     height:2px;
+     width:100%;
+     background: linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(182,180,180,0.7) 42%,rgba(180,178,178,0) 43%,rgba(168,166,166,0) 50%,rgba(180,178,178,0) 57%,rgba(182,180,180,0.7) 58%,rgba(238,237,237,0.3) 90%,rgba(255,255,255,0) 100%); /* W3C */
+ }
+</style>
+
+
+<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
+<!-- 画面表示に使うJavaScript関数 -->
+<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
+<script>
+</script>
