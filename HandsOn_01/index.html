@@ -16,40 +16,45 @@
 <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
 <!-- 実際に画面に表示される部分（HTML記述部分） -->
 <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
-<!-- ヘッダーを表示 -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">
-    <img src="./img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="AWS">
-    実践！ S3で静的Webページホスティング
-  </a>
-  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="Navber">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#new">新規ユーザ登録</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#users">ユーザ一覧</a>
-      </li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
-
-<!-- フォームを表示 -->
-<div id="content">
-  <h1> 招待状 </h1>
-  <p class="message">新しい我が家が完成しました。<br>ぜひ一度遊びに来てください。<br>ケーキとコーヒを用意して待っています。</p>
+<body>
+  <!-- ヘッダーを表示 -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #26A69A;">
+    <a class="navbar-brand" href="file:///Users/Y_h/AWS_work/ISDL_AWS_Study/HandsOn_01/index.html">
+      <img src="./img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="AWS">
+      実践！ S3で静的Webページホスティング
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="Navber">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="file:///Users/Y_h/AWS_work/ISDL_AWS_Study/HandsOn_01/index.html">新規ユーザ登録</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="file:///Users/Y_h/AWS_work/ISDL_AWS_Study/HandsOn_01/users.html">ユーザ一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://sites.google.com/mikilab.doshisha.ac.jp/aws-start-dash-study/handson/handson_1?authuser=1">参考サイト</a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
   
-  <form action=" " method="post"  autocomplete="on">
-    <p> <label for="name" class="iconic name fa fa-user" > 名前 <span class="required">*</span></label> <input type="text" name="name" id="name"  required="required" placeholder="トニー・スターク"  /> </p>
-    <p> <label for="grade" class="iconic grade fa fa-graduation-cap"> 学年 <span class="required">*</span></label> <input type="text" name="grade" id="grade" placeholder="M2" required="required"  /> </p>
-    <p class="indication"> <span class="required">*</span> マークは必須項目です。</p>
-    <input type="submit" value=" ★ 行きます:)" />
-  </form>
-</div>
+  <!-- フォームを表示 -->
+  <div id="content">
+    <h1> 招待状 </h1>
+    <p class="message">新しい我が家が完成しました。<br>ぜひ一度遊びに来てください。<br>ケーキとコーヒを用意して待っています。</p>
+    
+    <form action=" " method="post"  autocomplete="on">
+      <p> <label for="name" class="iconic name fa fa-user" > 名前 <span class="required">*</span></label> <input type="text" name="name" id="name"  required="required" placeholder="トニー・スターク"  /> </p>
+      <p> <label for="grade" class="iconic grade fa fa-graduation-cap"> 学年 <span class="required">*</span></label> <input type="text" name="grade" id="grade" placeholder="M2" required="required"  /> </p>
+      <p class="indication"> <span class="required">*</span> マークは必須項目です。</p>
+      <input type="submit" value=" ★ 行きます:)" />
+    </form>
+  </div>
+</body>
 
 
 <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
@@ -66,7 +71,6 @@
      padding:30px;
      border:1px solid #383838;   
      background: #D1D1D1;
-     /* My stripped background */
      background: repeating-linear-gradient(-45deg, #EFC1CB , #EFC1CB 30px, #F2F2F2 30px, #F2F2F2 40px, #C2E8F5 40px, #C2E8F5 70px,#F2F2F2 70px, #F2F2F2 80px);
      border-radius:8px;
      box-shadow:0px 1px 6px #3F3F3F;
@@ -86,6 +90,10 @@
      z-index: -1;
      border:1px #E5E5E5 solid;
      border-radius:8px;
+ }
+
+ body {
+     background: #FFE082;
  }
  
  h1 {
