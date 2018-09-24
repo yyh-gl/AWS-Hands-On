@@ -9,20 +9,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <!-- テンプレートのスタイルシートをインポート -->
 <link href='http://fonts.googleapis.com/css?family=Questrial|Droid+Sans|Alice' rel='stylesheet' type='text/css'>
-<!-- アイコン画像をインポート -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<!-- AWS SDKをインポート -->
-<script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
-<script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
-<script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
-<script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
-<script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
-<script type="text/javascript" src="lib/url-template/url-template.js"></script>
-<script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
-<script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
-<script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
-<script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
-<script type="text/javascript" src="apigClient.js"></script>
 
 
 <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
@@ -32,7 +18,7 @@
 <body>
   <!-- ヘッダーを表示 -->
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #26A69A;">
-    <a class="navbar-brand" href="file:///Users/Y_h/AWS_work/ISDL_AWS_Study/HandsOn_02/index.html">
+    <a class="navbar-brand" href="file:///Users/Y_h/AWS_work/ISDL_AWS_Study/HandsOn_01/index.html">
       <img src="./img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="AWS">
       実践！ S3で静的Webページホスティング
     </a>
@@ -43,10 +29,10 @@
     <div class="collapse navbar-collapse" id="Navber">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="file:///Users/Y_h/AWS_work/ISDL_AWS_Study/HandsOn_02/index.html">新規ユーザ登録</a>
+          <a class="nav-link" href="file:///Users/Y_h/AWS_work/ISDL_AWS_Study/HandsOn_01/index.html">新規ユーザ登録（index.html）</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="file:///Users/Y_h/AWS_work/ISDL_AWS_Study/HandsOn_02/users.html">ユーザ一覧</a>
+          <a class="nav-link" href="file:///Users/Y_h/AWS_work/ISDL_AWS_Study/HandsOn_01/users.html">ユーザ一覧（users.html）</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://sites.google.com/mikilab.doshisha.ac.jp/aws-start-dash-study/handson/handson_1?authuser=1">参考サイト</a>
@@ -54,27 +40,9 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
-  
-  <!-- ユーザ一覧を表示 -->
-  <br>
-  <table class="osare-table col5t">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>名前</th>
-        <th>学年</th>
-      </tr>
-    </thead>
-    <tbody id="tbodyID">
-    </tbody>
-  </table>
 
-  <!-- 更新ボタンを表示 -->
   <br>
-  <div class="mx-auto" style="width: 200px;">
-    <button type="button" class="btn btn-success badge-pill" onclick="reload();">&ensp;更新&ensp;</button>
-  </div>
-  <br>
+  <h1>次回のハンズオンでページの中身を作成していきます。</h1>
 </body>
 
 
@@ -82,54 +50,6 @@
 <!-- 画面表示に使うJavaScript関数 -->
 <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
 <script>
- /* 更新ボタン用のページリロード処理 */
- function reload() {
-     location.reload();
- };
-
- /*  テーブルを動的作成用(ページ(DOM)読み込み後に実行) */
- window.onload = function(){
-     getAllUsers();
- };
-
- /* テーブルを動的に作成 */
- function makeTable(users) {
-     var tbody = document.getElementById('tbodyID');
-     
-     for (i = 0; i < users.length; i++){
-         var tr = document.createElement('tr');
-         for (j = 0; j < 3; j++){
-             if (j == 0) {
-                 var th = document.createElement('th');
-                 th.innerHTML = i;
-                 tbody.appendChild(th);
-             } else if ( j == 1) {
-                 var td = document.createElement('td');
-                 td.innerHTML = users[i].name;
-                 tbody.appendChild(td);
-             } else {
-                 var td = document.createElement('td');
-                 td.innerHTML = users[i].grade;
-                 tbody.appendChild(td);
-             }
-         }
-         tbody.appendChild(tr);
-     }
- }
-
- /* ユーザ一覧取得 */
- function getAllUsers() {
-     var apigClient = apigClientFactory.newClient();     
-     apigClient.usersGet()
-               .then(function(result){
-                   console.log(result.data);
-                   makeTable(result.data);
-               }).catch(function(result){
-                   alert('error');
-                   alert(JSON.stringify(result));
-                   console.log(result);
-               });
- }
 </script>
 
 
