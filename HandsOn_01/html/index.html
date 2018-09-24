@@ -64,7 +64,6 @@
       <p> <label for="name" class="iconic name fa fa-user" > 名前 <span class="required">*</span></label> <input type="text" name="name" id="name"  required="required" placeholder="トニー・スターク"  /> </p>
       <p> <label for="grade" class="iconic grade fa fa-graduation-cap"> 学年 <span class="required">*</span></label> <input type="text" name="grade" id="grade" placeholder="M2" required="required"  /> </p>
       <p class="indication"> <span class="required">*</span> マークは必須項目です。</p>
-      <!-- <input type="submit" value=" ★ 行きます:)" onclick="createNewUser();"/> -->
       <button type="button" class="btn btn-success badge-pill" onclick="createNewUser();"> ★ 行きます:)</button>
     </form>
   </div>
@@ -81,20 +80,19 @@
      
      var name  = document.inviteForm.name.value;
      var grade = document.inviteForm.grade.value;
-     var age   = 24;     
 
      var params = {};
      var body = {
          "name": name,
-         "grade": grade,
-         "age": age
+         "grade": grade
      };
      var additionalParams = {};
      
      apigClient.usersPost(params, body, additionalParams)
                .then(function(result){
-                   alert('success');
                    console.log(result)
+                   alert(name + "さんがお越しになるのを心よりお待ちしております。")
+                   location.reload();
                }).catch(function(result){
                    alert('error');
                    alert(JSON.stringify(result));
