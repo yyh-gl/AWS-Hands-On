@@ -11,6 +11,18 @@
 <link href='http://fonts.googleapis.com/css?family=Questrial|Droid+Sans|Alice' rel='stylesheet' type='text/css'>
 <!-- アイコン画像をインポート -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- AWS SDKをインポート -->
+<script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+<script type="text/javascript" src="lib/url-template/url-template.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+<script type="text/javascript" src="apigClient.js"></script>
 
 
 <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
@@ -48,14 +60,48 @@
     <h1> 招待状 </h1>
     <p class="message">新しい我が家が完成しました。<br>ぜひ一度遊びに来てください。<br>ケーキとコーヒを用意して待っています。</p>
     
-    <form action=" " method="post"  autocomplete="on">
+    <form name="inviteForm" accept-charset="UTF-8" autocomplete="on">
       <p> <label for="name" class="iconic name fa fa-user" > 名前 <span class="required">*</span></label> <input type="text" name="name" id="name"  required="required" placeholder="トニー・スターク"  /> </p>
       <p> <label for="grade" class="iconic grade fa fa-graduation-cap"> 学年 <span class="required">*</span></label> <input type="text" name="grade" id="grade" placeholder="M2" required="required"  /> </p>
       <p class="indication"> <span class="required">*</span> マークは必須項目です。</p>
-      <input type="submit" value=" ★ 行きます:)" />
+      <!-- <input type="submit" value=" ★ 行きます:)" onclick="createNewUser();"/> -->
+      <button type="button" class="btn btn-success badge-pill" onclick="createNewUser();"> ★ 行きます:)</button>
     </form>
   </div>
 </body>
+
+
+<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
+<!-- 画面表示に使うJavaScript関数 -->
+<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
+<script>
+ /* 新規ユーザ登録リクエスト送信 */
+ function createNewUser() {
+     var apigClient = apigClientFactory.newClient();
+     
+     var name  = document.inviteForm.name.value;
+     var grade = document.inviteForm.grade.value;
+     var age   = 24;     
+
+     var params = {};
+     var body = {
+         "name": name,
+         "grade": grade,
+         "age": age
+     };
+     var additionalParams = {};
+     
+     apigClient.usersPost(params, body, additionalParams)
+               .then(function(result){
+                   alert('success');
+                   console.log(result)
+               }).catch(function(result){
+                   alert('error');
+                   alert(JSON.stringify(result));
+                   console.log(result)
+               });
+ }
+</script>
 
 
 <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
@@ -129,10 +175,3 @@
      background: linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(182,180,180,0.7) 42%,rgba(180,178,178,0) 43%,rgba(168,166,166,0) 50%,rgba(180,178,178,0) 57%,rgba(182,180,180,0.7) 58%,rgba(238,237,237,0.3) 90%,rgba(255,255,255,0) 100%); /* W3C */
  }
 </style>
-
-
-<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
-<!-- 画面表示に使うJavaScript関数 -->
-<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
-<script>
-</script>
