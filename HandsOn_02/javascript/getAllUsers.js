@@ -37,10 +37,11 @@ function makeTable(users) {
 function getAllUsers() {
     var apigClient = apigClientFactory.newClient();     
     apigClient.usersGet()
-        .then(function(result){
-            console.log(result.data);
+        .then(function(result){ // ユーザデータを正常に取得できたときの処理
             makeTable(result.data);
-        }).catch(function(result){
+            console.log(result.data);
+
+        }).catch(function(result){ // ユーザデータ取得時にエラーが発生したときの処理
             alert('error');
             alert(JSON.stringify(result));
             console.log(result);
