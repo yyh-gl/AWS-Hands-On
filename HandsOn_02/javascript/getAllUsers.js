@@ -17,7 +17,7 @@ function makeTable(users) {
         for (j = 0; j < 3; j++){
             if (j == 0) {
                 var th = document.createElement('th');
-                th.innerHTML = i;
+                th.innerHTML = i + 1;
                 tbody.appendChild(th);
             } else if ( j == 1) {
                 var td = document.createElement('td');
