@@ -28,6 +28,8 @@
     <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
     <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
     <script type="text/javascript" src="apigClient.js"></script>
+    <!-- 自作スクリプトをインポート -->
+    <script type="text/javascript" src="./javascript/createNewUser.js"></script>
   </head>
 
   <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
@@ -73,38 +75,6 @@
     </div>
   </body>
 </html>
-
-
-<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
-<!-- 画面表示に使うJavaScript関数 -->
-<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
-<script>
- /* 新規ユーザ登録リクエスト送信 */
- function createNewUser() {
-     var apigClient = apigClientFactory.newClient();
-     
-     var name  = document.inviteForm.name.value;
-     var grade = document.inviteForm.grade.value;
-
-     var params = {};
-     var body = {
-         "name": name,
-         "grade": grade
-     };
-     var additionalParams = {};
-     
-     apigClient.usersPost(params, body, additionalParams)
-               .then(function(result){
-                   console.log(result)
-                   alert(name + "さんがお越しになるのを心よりお待ちしております。")
-                   location.reload();
-               }).catch(function(result){
-                   alert('error');
-                   alert(JSON.stringify(result));
-                   console.log(result)
-               });
- }
-</script>
 
 
 <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
