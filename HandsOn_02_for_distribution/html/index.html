@@ -17,19 +17,21 @@
     <!-- アイコン画像をインポート -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- AWS SDKをインポート -->
-    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
-    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
-    <script type="text/javascript" src="apigClient.js"></script>
-    <!-- 自作スクリプトをインポート -->
-    <script type="text/javascript" src="./javascript/createNewUser.js"></script>
+    <script type="text/javascript" src="../sdk/lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="../sdk/lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="../sdk/lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="../sdk/lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="../sdk/lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="../sdk/lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="../sdk/lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="../sdk/lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="../sdk/lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="../sdk/lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="../sdk/apigClient.js"></script>
+    <!-- ★自作スクリプトをインポート★ -->
+    <script type="text/javascript" src="../javascript/createNewUser.js"></script>
+    <!-- ★スタイルシート（CSS）をインポート★ -->
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
   </head>
 
   <!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
@@ -55,7 +57,7 @@
             <a class="nav-link" href="自分のURL/users.html">ユーザ一覧</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://sites.google.com/mikilab.doshisha.ac.jp/aws-start-dash-study/handson/handson_1?authuser=1">参考サイト</a>
+            <a class="nav-link" href="https://sites.google.com/mikilab.doshisha.ac.jp/aws-start-dash-study/handson/vol-2">参考サイト</a>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -75,76 +77,3 @@
     </div>
   </body>
 </html>
-
-
-<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
-<!-- 画面表示を鮮やかにする部分（CSS記述部分） -->
-<!---+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-->
-<style>
- /* 入力フォーム */
- #content{
-     position:relative;
-     margin:50px auto;   
-     width:400px;
-     min-height:200px;
-     z-index:100;
-     padding:30px;
-     border:1px solid #383838;   
-     background: #D1D1D1;
-     background: repeating-linear-gradient(-45deg, #EFC1CB , #EFC1CB 30px, #F2F2F2 30px, #F2F2F2 40px, #C2E8F5 40px, #C2E8F5 70px,#F2F2F2 70px, #F2F2F2 80px);
-     border-radius:8px;
-     box-shadow:0px 1px 6px #3F3F3F;
-     text-align: center;
- }
-
- /* 入力フォーム */
- #content:after{
-     background:#F9F9F9;
-     margin:10px;
-     position: absolute;
-     content : " ";
-     bottom: 0;
-     left: 0;
-     right: 0;
-     top: 0;
-     z-index: -1;
-     border:1px #E5E5E5 solid;
-     border-radius:8px;
- }
-
- body {
-     background: #FFE082;
- }
- 
- h1 {
-     font-family: 'Questrial', Verdana, sans-serif;
-     text-align:center;
-     font-size:40px;
-     padding:0;
-     margin:0 0 20px 0;
-     position:relative;
-     color:#8C8C8C;
- }
- 
- h1:after {
-     font-size:25px;
-     color:#D6CFCB;
-     content: '&';
-     text-align:center;
-     display:block;
-     width:100%;
-     font-family: 'Alice', Verdana, serif;
-     text-shadow: 0px 1px 0px #fff;
- }
- 
- h1:before {
-     position:absolute;
-     bottom:15px;
-     content: ' ';
-     text-align:center;
-     display:block;
-     height:2px;
-     width:100%;
-     background: linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(182,180,180,0.7) 42%,rgba(180,178,178,0) 43%,rgba(168,166,166,0) 50%,rgba(180,178,178,0) 57%,rgba(182,180,180,0.7) 58%,rgba(238,237,237,0.3) 90%,rgba(255,255,255,0) 100%); /* W3C */
- }
-</style>
