@@ -35,7 +35,7 @@ function makeTable(users) {
 
 /* ユーザ一覧取得 */
 function getAllUsers() {
-    var apigClient = apigClientFactory.newClient();     
+    var apigClient = apigClientFactory.newClient();
     apigClient.usersGet()
         .then(function(result){ // ユーザデータを正常に取得できたときの処理
             makeTable(result.data);
